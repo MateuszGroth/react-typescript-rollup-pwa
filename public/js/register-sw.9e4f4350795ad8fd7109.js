@@ -1,0 +1,1 @@
+(self.webpackChunkreact_typescript_webpack=self.webpackChunkreact_typescript_webpack||[]).push([[54],{882:()=>{"serviceWorker"in navigator&&window.addEventListener("load",(()=>{navigator.serviceWorker.register("./js/sw.js",{scope:"/"}).then((()=>console.log("Service Worker: Registered"))).catch((e=>`Service Worker Error: ${e}`))}))}},0,[[882,666]]]);

@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "public/js",
+        "target": "ES2017",
+        "module": "ES2015",
+        "jsx": "react",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node"
+    }
+}
