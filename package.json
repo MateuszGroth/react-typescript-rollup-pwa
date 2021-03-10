@@ -2,7 +2,7 @@
     "name": "react-typescript-webpack",
     "version": "1.0.0",
     "description": "",
-    "main": "index.j",
+    "main": "index.tsx",
     "scripts": {
         "webpack": "webpack",
         "nodemon": "nodemon server/index.js",
