@@ -1,12 +1,22 @@
 {
     "compilerOptions": {
+        "baseUrl": ".",
         "outDir": "public/js",
         "target": "ES2017",
-        "module": "ES2015",
+        "module": "ES2020",
         "jsx": "react",
         "noImplicitAny": false,
         "removeComments": true,
         "allowSyntheticDefaultImports": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "paths": {
+            "style/*": ["style/*"],
+            "utils/*": ["src/utils/*"],
+            "global/*": ["src/components/global/*"],
+            "views/*": ["src/components/views/*"],
+            "user/*": ["src/components/user/*"],
+            "icons/*": ["src/components/icons/*"],
+            "nav/*": ["src/components/nav/*"]
+        }
     }
 }

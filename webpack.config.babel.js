@@ -6,7 +6,9 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
+// THIS PLUGIN IMPORTS ALIASES FROM tsconfig.json
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 //  ! ADD THIS TO PACKAGE JSON when final version
 //  ? Webpack hot reload does not work with that
@@ -96,15 +98,17 @@ module.exports = (env = {}) => ({
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        alias: {
-            ['style']: path.resolve(__dirname, 'style'),
-            ['utils']: path.resolve(__dirname, 'src/utils'),
-            ['global']: path.resolve(__dirname, 'src/components/global'),
-            ['views']: path.resolve(__dirname, 'src/components/views'),
-            ['user']: path.resolve(__dirname, 'src/components/user'),
-            ['icons']: path.resolve(__dirname, 'src/components/icons'),
-            ['nav']: path.resolve(__dirname, 'src/components/nav')
-        }
+        plugins: [new TsconfigPathsPlugin()]
+        // aliases are imported from tsconfig
+        // alias: {
+        //     ['style']: path.resolve(__dirname, 'style'),
+        //     ['utils']: path.resolve(__dirname, 'src/utils'),
+        //     ['global']: path.resolve(__dirname, 'src/components/global'),
+        //     ['views']: path.resolve(__dirname, 'src/components/views'),
+        //     ['user']: path.resolve(__dirname, 'src/components/user'),
+        //     ['icons']: path.resolve(__dirname, 'src/components/icons'),
+        //     ['nav']: path.resolve(__dirname, 'src/components/nav')
+        // }
     },
     optimization: {
         moduleIds: 'deterministic',
