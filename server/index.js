@@ -50,6 +50,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+// enable cors
+app.get(`/cors`, (req, res) => {
+    res.setHeader(`Access-Control-Allow-Origin`, 'https://10.12.56.227');
+    res.send('Poszlo po cors');
+});
+
+app.options(`/cors`, (req, res) => {
+    res.setHeader(`Access-Control-Allow-Origin`, 'https://10.12.56.227');
+    res.setHeader(`Access-Control-Allow-Headers`, '*');
+    res.sendStatus(204);
+});
+
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
 });
