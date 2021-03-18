@@ -1,0 +1,1 @@
+(self.webpackChunkreact_typescript_webpack=self.webpackChunkreact_typescript_webpack||[]).push([[179],{195:(e,t,c)=>{"use strict";var l=c(294);const r=e=>l.createElement("h4",null,"Hello World",l.createElement("ul",null,[1,2,"czesc"].map((e=>l.createElement("li",{key:e},""+e)))));c(935).render(l.createElement(r,null),document.querySelector("#root"))}},0,[[195,666,216]]]);
