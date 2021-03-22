@@ -43,12 +43,15 @@ module.exports = (env = {}) => ({
                     loader: 'babel-loader',
                     options: {
                         presets: [
+                            // preset env enables reading targets from browserlists
                             [
-                                '@babel/preset-env',
-                                {
-                                    useBuiltIns: 'usage',
-                                    corejs: '2'
-                                }
+                                '@babel/preset-env'
+                                // THIS REQUIRES core-js ^ 2 to be installed
+                                // it is needed if want to transpile to es5
+                                // {
+                                //     useBuiltIns: 'usage',
+                                //     corejs: '2'
+                                // }
                             ],
                             '@babel/preset-react'
                         ]
