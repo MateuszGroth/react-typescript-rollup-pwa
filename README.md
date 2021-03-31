@@ -1,1 +1,1 @@
-## React webpack ts nodejs setup
+## PWA setup - react (typescript), rollup, nodejs
