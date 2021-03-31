@@ -46,7 +46,7 @@ export default {
         }),
         postcss({
             // inject: false,
-            minimize: true,
+            minimize: !shouldEnableDevServer,
             extensions: ['.scss', '.css'],
             extract: 'css/main.css',
             config: {
@@ -61,6 +61,7 @@ export default {
         }),
         typescript(),
         commonjs({
+            sourceMap: !shouldEnableDevServer,
             namedExports: {
                 'react': [
                     'createElement',
@@ -82,15 +83,13 @@ export default {
             dedupe: ['react', 'react-dom'],
             extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
         }),
-        terser(),
         ...(shouldEnableDevServer
             ? [
                   serve({ contentBase: [outDir], historyApiFallback: true }), // index.html should be in root of project
-
                   livereload({
                       watch: outDir,
                   }),
               ]
-            : []),
+            : [terser()]),
     ],
 };
