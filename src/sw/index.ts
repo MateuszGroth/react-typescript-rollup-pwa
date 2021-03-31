@@ -3,7 +3,7 @@ const staticCache = `static-${VERSION}`;
 const expectedCaches = [staticCache];
 
 self.addEventListener('install', event => {
-    console.log(`Service Worker: Installed nowy?`);
+    console.log(`Service Worker: Installed`);
     event.waitUntil(
         (async () => {
             const cache = await caches.open(staticCache);
@@ -14,6 +14,7 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('activate', event => {
+    console.log(`Service Worker: Activated`);
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
@@ -44,9 +45,9 @@ self.addEventListener('fetch', event => {
 
     // ? not needed since we are caching '/'
     // if (url.origin == location.origin && url.pathname == '/') {
-    //     console.log(event.request);
-    //     // event.respondWith(caches.match('/index.adsadasd.html')); // main index html with hash
-    //     return;
+    // console.log(event.request);
+    // event.respondWith(caches.match('/index.adsadasd.html')); // main index html with hash
+    //     return ;
     // }
 
     event.respondWith(
