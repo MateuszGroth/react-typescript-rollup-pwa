@@ -6,9 +6,10 @@
         "module": "ES2020",
         "jsx": "react",
         "noImplicitAny": false,
-        "removeComments": true,
+        "removeComments": false,
         "allowSyntheticDefaultImports": true,
         "moduleResolution": "node",
+        "lib": ["DOM", "WebWorker", "ES2017"],
         "paths": {
             "style/*": ["style/*"],
             "utils/*": ["src/utils/*"],
@@ -16,7 +17,8 @@
             "views/*": ["src/components/views/*"],
             "user/*": ["src/components/user/*"],
             "icons/*": ["src/components/icons/*"],
-            "nav/*": ["src/components/nav/*"]
+            "nav/*": ["src/components/nav/*"],
+            "types": ["src/typings/types.d.ts"]
         }
     }
 }

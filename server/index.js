@@ -42,7 +42,7 @@ app.use(
             if (path.match(/\.(js|css|png|jpg|jpeg|gif|ico|json)$/)) {
                 setLongTermCache(res);
             }
-        }
+        },
     })
 );
 // parse application/x-www-form-urlencoded
@@ -53,7 +53,7 @@ app.use(bodyParser.json());
 // enable cors
 app.get(`/cors`, (req, res) => {
     res.setHeader(`Access-Control-Allow-Origin`, 'https://10.12.56.227');
-    res.send('Poszlo po cors');
+    res.send('cors request');
 });
 
 app.options(`/cors`, (req, res) => {

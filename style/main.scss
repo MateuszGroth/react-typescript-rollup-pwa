@@ -1,3 +1,7 @@
+@import 'partial-tailwind/tailwind';
+
+$clr: red;
+
 h4 {
-    color: red;
+    color: $clr;
 }
