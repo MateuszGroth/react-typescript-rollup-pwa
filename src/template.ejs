@@ -4,13 +4,21 @@
         <title>My App</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <%if(useModules){%> <% if (typeof mainDeps !== "undefined") {%> <% for (const dep of mainDeps) { %>
+        <script type="module" src="<%= dep %>"></script>
+        <% }%> <% } %>
+        <script type="module" src="<%= mainJS %>"></script>
+        <%} else {%>
         <script defer src="<%= mainJS %>"></script>
         <% if (typeof mainDeps !== "undefined") {%> <% for (const dep of mainDeps) { %>
         <link rel="preload" as="script" href="<%= dep %>" />
-        <% }%> <% } %>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <% }%> <% } %> <%}%> <% if (useManifest) { %>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="stylesheet" href="css/main.css" />
+        <% }%>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <%if(stylePath){%>
+        <link rel="stylesheet" href="<%= stylePath%>" />
+        <%}%>
         <link
             href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap"
             rel="stylesheet"
